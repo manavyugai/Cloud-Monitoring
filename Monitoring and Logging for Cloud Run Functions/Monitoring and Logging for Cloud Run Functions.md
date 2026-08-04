@@ -25,4 +25,4 @@ You've successfully completed the lab. **Way to go!** 🚀
 
 
 
-# [Cloud Wala Banda](https://www.youtube.com/@cloudwalabanda)
+# [ManavYugAI](https://www.youtube.com/@manavyugai)
