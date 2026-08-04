@@ -84,8 +84,8 @@ INSTANCE_ID="$(gcloud compute instances describe  lamp-1-vm --project=$DEVSHELL_
 
 echo "${BLUE_TEXT}${BOLD_TEXT}Setting up Uptime Monitoring...${RESET_FORMAT}"
 
-gcloud monitoring uptime create lamp-uptime-check \
-  --resource-type="gce-instance" \
+gcloud monitoring uptime create Lamp Uptime Check \
+  --resource-type="url" \
   --resource-labels=project_id=$DEVSHELL_PROJECT_ID,instance_id=$INSTANCE_ID,zone=$ZONE
 
 
