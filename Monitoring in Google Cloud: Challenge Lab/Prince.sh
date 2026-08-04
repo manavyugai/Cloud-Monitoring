@@ -23,7 +23,7 @@ echo "${CYAN_TEXT}${BOLD_TEXT}╔═══════════════�
 echo "${CYAN_TEXT}${BOLD_TEXT}     WELCOME TO MANAVYUG AI : SUBSCRIBE NOW    ${RESET_FORMAT}"
 echo "${CYAN_TEXT}${BOLD_TEXT}╚════════════════════════════════════════════════════════╝${RESET_FORMAT}"
 echo
-echo "${MAGENTA_TEXT}${BOLD_TEXT}     Expert Tutorial by Dr. Abhishek     ${RESET_FORMAT}"
+echo "${MAGENTA_TEXT}${BOLD_TEXT}     Expert Tutorial by PRINCE     ${RESET_FORMAT}"
 echo "${YELLOW_TEXT}${BOLD_TEXT} Learn more: ${UNDERLINE_TEXT}https://www.youtube.com/@manavyugai${RESET_FORMAT}"
 echo
 echo "${BLUE_TEXT}${BLINK_TEXT}⚡ Initializing Cloud Monitoring Setup...${RESET_FORMAT}"
