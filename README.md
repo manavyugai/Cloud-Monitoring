@@ -27,10 +27,10 @@ sudo chmod +x Cloudmonitor.sh
 ## 🎉 **Congratulations! Lab Completed Successfully!** 🏆  
 
 <div align="center" style="padding: 5px;">
-  <h3>📱 Join the Tech & Code Community</h3>
+  <h3>📱 Join the Manav Yug ai</h3>
   
   <a href="https://www.youtube.com/@ManavYugAI">
-    <img src="https://img.shields.io/badge/Subscribe-Tech%20&%20Code-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Channel">
+    <img src="o">
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/prince-purwe/">
