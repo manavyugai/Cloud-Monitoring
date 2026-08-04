@@ -15,9 +15,9 @@
 ## ☁️ Run in Cloud Shell:
 
 ```bash
-curl -LO
-sudo chmod +x TechCode.sh 
-./TechCode.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Monitoring%20and%20Logging%20for%20Cloud%20Run%20Functions/monitor.sh
+sudo chmod +x monitor.sh
+./monitor.sh
 ```
 
 </div>
