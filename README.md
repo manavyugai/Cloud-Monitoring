@@ -15,9 +15,9 @@
 ## ☁️ Run in Cloud Shell:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/prateekrajput08/Arcade-Google-Cloud-Labs/refs/heads/main/Cloud%20Monitoring%3A%20Qwik%20Start/TechCode.sh
-sudo chmod +x TechCode.sh
-./TechCode.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloudmonitor.sh
+sudo chmod +x Cloudmonitor.sh
+./Cloudmonitor.sh
 ```
 
 </div>
