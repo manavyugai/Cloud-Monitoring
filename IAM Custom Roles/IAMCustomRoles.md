@@ -5,11 +5,9 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/IAM%20Custom%20Roles/gsp190.sh
-
-sudo chmod +x gsp190.sh
-
-./gsp190.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/IAM%20Custom%20Roles/IAM.sh
+sudo chmod +x IAM.sh
+./IAM.sh
 ```
 
 ### 🐼 Congratulations 🎉 for completing the Lab !
