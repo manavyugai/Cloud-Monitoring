@@ -21,21 +21,12 @@ gcloud compute ssh centos-clean --zone=$ZONE --quiet
 ```
 
 ```bash
-curl -LO raw.githubusercontent.com/prateekrajput08/Arcade-Google-Cloud-Labs/refs/heads/main/Configuring%20IAM%20Permissions%20with%20gcloud/TechCode.sh
-sudo chmod +x TechCode.sh 
-./TechCode.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Configuring%20IAM%20Permissions%20with%20gcloud/Meow.sh
+sudo chmod +x Meow.sh
+./Meow.sh
 ```
 ```bash
-echo -n "Enter PROJECTID2: "
-read PROJECTID2
-if [[ -z "$PROJECTID2" ]]; then
-echo "ERROR: PROJECTID2 cannot be empty"
-exit 1
-fi
-gcloud config set project $PROJECTID2
-gcloud iam service-accounts create instance-admin-sa 
---display-name "Instance Admin SA" || true
-export SA=instance-admin-sa@$PROJECTID2.iam.gserviceaccount.com
+Hello
 ```
 
 </div>
