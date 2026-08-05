@@ -21,9 +21,6 @@ sudo chmod +x Prince.sh
 
 
 
-<!-- X (Twitter) -->
-<a href="https://x.com/DAbhishek5460" target="_blank" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/-Follow_X-000000?style=for-the-badge&logo=x&logoColor=white&labelColor=000000&color=white&gradient=linear-gradient(90deg, #000000, #2D2D2D)" alt="X (Twitter)"/>
-</a>
+
 
 </div>
