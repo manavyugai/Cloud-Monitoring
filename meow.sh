@@ -67,36 +67,33 @@ gcloud compute networks subnets describe vpc2-ncc-subnet1 \
 --format="value(ipCidrRange)"
 echo "${BLUE_TEXT}${BOLD_TEXT}Setting up Uptime Monitoring...${RESET_FORMAT}"
 
-gcloud monitoring uptime create Lamp Uptime Check \
-  --resource-type="url" \
-  --resource-labels=project_id=$DEVSHELL_PROJECT_ID,instance_id=$INSTANCE_ID,zone=$ZONE
+gcloud compute addresses create cloudsql-psc \
+--project=PROJECT_ID \
+--region=REGION \
+--subnet=vpc2-ncc-subnet1 \
+--addresses=10.2.2.70
 
 
 echo "${YELLOW_TEXT}${BOLD_TEXT}Creating an email notification channel...${RESET_FORMAT}"
 
-cat > email-channel.json <<EOF_END
-{
-  "type": "email",
-  "displayName": "arcadecrew",
-  "description": "arcadecrew",
-  "labels": {
-    "email_address": "$USER_EMAIL"
-  }
-}
-EOF_END
+gcloud compute addresses list \
+--project=PROJECT_ID \
+--filter="name=cloudsql-psc"
 
 
-gcloud beta monitoring channels create --channel-content-from-file="email-channel.json"
+
 
 
 
 echo "${CYAN_TEXT}${BOLD_TEXT}Fetching channel ID...${RESET_FORMAT}"
 
-# Run the gcloud command and store the output in a variable
-channel_info=$(gcloud beta monitoring channels list)
-
-# Extract the channel ID using grep and awk
-channel_id=$(echo "$channel_info" | grep -oP 'name: \K[^ ]+' | head -n 1)
+gcloud compute forwarding-rules create cloudsql-psc-ep \
+--address=cloudsql-psc \
+--project=PROJECT_ID \
+--region=REGION \
+--network=vpc2-ncc  \
+--target-service-attachment=
+--allow-psc-global-access
 
 echo "${MAGENTA_TEXT}${BOLD_TEXT}Creating an alert policy for network traffic...${RESET_FORMAT}"
 
