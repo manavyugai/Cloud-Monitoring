@@ -17,4 +17,4 @@ sudo chmod +x IAM.sh
 #### *Well done!*
 
 
-# [SPARKWAVE](https://www.youtube.com/@manavyugai)
+# [MANAVYUGAI](https://www.youtube.com/@manavyugai)
