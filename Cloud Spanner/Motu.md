@@ -23,4 +23,4 @@ sudo chmod +x gsp1048.sh
 
 
 
-# [Cloud Wala Banda](https://www.youtube.com/@manavyugai)
+# [ManavYug AI](https://www.youtube.com/@manavyugai)
