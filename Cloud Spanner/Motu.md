@@ -7,12 +7,11 @@
 ```
 export REGION=
 ```
+### Run this
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Cloud%20Spanner%20-%20Database%20Fundamentals/gsp1048.sh
-
-sudo chmod +x gsp1048.sh
-
-./gsp1048.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Spanner/Motu.sh
+sudo chmod +x Motu.sh
+./Motu.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
