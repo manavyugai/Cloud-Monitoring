@@ -45,7 +45,7 @@ RESET=`tput sgr0`
 
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${BG_MAGENTA}${BOLD}Starting Execution - Sparkwave Dev Cloud Tutorials${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution - ManavYUG AI${RESET}"
 
 # Create Spanner instance
 echo "${CYAN}${BOLD}Creating Spanner instance: banking-ops-instance${RESET}"
