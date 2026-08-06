@@ -7,9 +7,11 @@
 export REGION=
 ```
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20Spanner%20Instances%20Challenge%20/prince.sh
-sudo chmod +x prince.sh
-./prince.sh
+curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/Create%20and%20Manage%20Cloud%20Spanner%20Instances%20Challenge%20Lab/gsp381.sh
+
+sudo chmod +x gsp381.sh
+
+./gsp381.sh
 ```
 
 * Go to `Dataflow Job` from [here](https://console.cloud.google.com/dataflow/jobs?)
