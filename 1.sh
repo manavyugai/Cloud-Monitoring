@@ -27,7 +27,7 @@ echo
 
 
 
-echo "${YELLOW_TEXT}${BOLD_TEXT}Please Enter Your Zone:${RESET_FORMAT}"
+echo "${YELLOW_TEXT}${BOLD_TEXT}Please Wait:${RESET_FORMAT}"
 gcloud services enable networkconnectivity.googleapis.com
 
 
