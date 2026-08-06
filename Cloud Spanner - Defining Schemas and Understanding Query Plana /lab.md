@@ -12,9 +12,9 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO https://raw.githubusercontent.com/Itsabhishek7py/GoogleCloudSkillsboost/refs/heads/main/Cloud%20Spanner%20-%20Defining%20Schemas%20and%20Understanding%20Query%20Plans/abhishek.sh
-sudo chmod +x abhishek.sh
-./abhishek.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Spanner%20-%20Defining%20Schemas%20and%20Understanding%20Query%20Plana%20/Prince.sh
+sudo chmod +x Prince.sh
+./Prince.sh
 ```
 ### Congratulations !!!!
 
