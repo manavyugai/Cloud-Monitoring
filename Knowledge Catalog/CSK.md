@@ -8,11 +8,9 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/Dataplex%20Qwik%20Start%20-%20Command%20Line/gsp1144.sh
-
-sudo chmod +x gsp1144.sh
-
-./gsp1144.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Knowledge%20Catalog/CSK.sh
+sudo chmod +x CSK.sh
+./CSK.sh
 ```
 
 ### 🐼 Congratulations 🎉 for Completing the Lab !
