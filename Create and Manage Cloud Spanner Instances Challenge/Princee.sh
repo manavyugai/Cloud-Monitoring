@@ -1,25 +1,5 @@
+
 #!/bin/bash
-
-GREEN='\e[1;32m'
-CYAN='\e[1;36m'
-YELLOW='\e[1;33m'
-BLUE='\e[1;34m'
-MAGENTA='\e[1;35m'
-WHITE='\e[1;37m'
-RESET='\e[0m'
-BOLD='\e[1m'
-
-clear
-
-echo -e "${CYAN}${BOLD}"
-
-cat << "EOF"
-
-
-
-EOF
-
-echo -e "${RESET}"
 # Define color variables
 
 BLACK=`tput setaf 0`
@@ -45,13 +25,13 @@ RESET=`tput sgr0`
 
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${BG_MAGENTA}${BOLD}Starting Execution - ManavYUG AI${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution -ManavYugAi${RESET}"
 
 # Create Spanner instance
 echo "${CYAN}${BOLD}Creating Spanner instance: banking-ops-instance${RESET}"
 gcloud spanner instances create banking-ops-instance \
   --config=regional-$REGION \
-  --description="sparkwavedev" \
+  --description="DrAbhishekTutorial" \
   --nodes=1
 
 # Create database
@@ -158,8 +138,8 @@ gsutil mb gs://$DEVSHELL_PROJECT_ID
 
 # Create placeholder file
 echo "${CYAN}${BOLD}Creating placeholder files${RESET}"
-touch sparkwavedev
-gsutil cp sparkwavedev gs://$DEVSHELL_PROJECT_ID/tmp/sparkwavedev
+touch drabhishektutorial
+gsutil cp drabhishektutorial gs://$DEVSHELL_PROJECT_ID/tmp/drabhishektutorial
 
 # Upload files to GCS
 echo "${CYAN}${BOLD}Uploading files to Cloud Storage${RESET}"
@@ -172,7 +152,7 @@ sleep 100
 
 # Run Dataflow job
 echo "${CYAN}${BOLD}Running Dataflow import job${RESET}"
-gcloud dataflow jobs run sparkwavedev \
+gcloud dataflow jobs run drabhishektutorial \
   --gcs-location gs://dataflow-templates-"$REGION"/latest/GCS_Text_to_Cloud_Spanner \
   --region="$REGION" \
   --staging-location gs://$DEVSHELL_PROJECT_ID/tmp/ \
@@ -184,7 +164,7 @@ gcloud spanner databases ddl update banking-ops-db --instance=banking-ops-instan
   --ddl='ALTER TABLE Category ADD COLUMN MarketingBudget INT64;'
 
 # Completion message
-echo "${BG_RED}${BOLD}Lab Completed Successfully - ManavYugAI${RESET}"
-
+echo "${BG_RED}${BOLD}Lab Completed Successfully - ${RESET}"
+echo "${BLUE}Thankyou${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
