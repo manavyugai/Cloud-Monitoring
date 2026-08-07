@@ -8,11 +8,9 @@
 export LOCATION=
 ```
 ```
-curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/Get%20Started%20with%20Dataplex%20Challenge%20Lab/arc117.sh
-
-sudo chmod +x arc117.sh
-
-./arc117.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Organize%20and%20Govern%20Data%20with%20Knowledge%20Catalog/KKR.sh
+sudo chmod +x KKR.sh
+./KKR.sh
 ```
 
 ### Task 3. Create and apply a tag template to a zone
