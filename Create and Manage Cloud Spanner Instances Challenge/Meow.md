@@ -7,9 +7,9 @@
 export REGION=
 ```
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20Spanner%20Instances%20Challenge/Princee.sh
-sudo chmod +x Princee.sh
-./Princee.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20Spanner%20Instances%20Challenge/Tiktok.sh
+sudo chmod +x Tiktok.sh
+./Tiktok.sh
 ```
 
 ````
