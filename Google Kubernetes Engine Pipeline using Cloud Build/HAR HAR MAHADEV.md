@@ -2,9 +2,9 @@
 
 ## 🔑 Solution 
 
-**TASK 2**
+**STEP 1**
 ```
-  
+export REGION=  
 ```
 
 **Recommendations**
