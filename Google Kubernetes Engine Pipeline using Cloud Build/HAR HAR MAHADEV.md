@@ -15,11 +15,9 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Google%20Kubernetes%20Engine%20Pipeline%20using%20Cloud%20Build/gsp1077.sh
-
-sudo chmod +x *.sh
-
-./*.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Google%20Kubernetes%20Engine%20Pipeline%20using%20Cloud%20Build/Mahadev.sh
+sudo chmod +x Mahadev.sh
+./Mahadev.sh
 ```
 
 # 🎉 Woohoo! You Did It! 🎉  
