@@ -6,11 +6,9 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/Managing%20Deployments%20Using%20Kubernetes%20Engine/gsp053.sh
-
-sudo chmod +x gsp053.sh
-
-./gsp053.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/introduction%20to%20google/Jee.sh
+sudo chmod +x Jee.sh
+./Jee.sh
 ```
 
 ### 🐻‍❄️ྀིྀི Congratulations 🎉 for completing the Lab !
