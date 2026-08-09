@@ -8,11 +8,11 @@
 > **Terms Compliance:** Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The aim is to enhance your learning experience — not to circumvent it.
 
 ---
-## **Task 2: Add Automation to an AppSheet App**
 
-### 1. Open Drive [Here](https://drive.google.com/drive/my-drive)
-### 2. Download [Here](https://docs.google.com/spreadsheets/d/1zbZDz4Wru3zmsnKYXlSMP5OdcBWZrhNE/export?format=xlsx)(https://docs.google.com/spreadsheets/d/1w8jt5Lf6_OEMJCtNbPaZXAN9r5NBjjJ9sCzMT7G692M/export?format=xlsx))
----
+## ⚙️ **Task 2: Add Automation to an AppSheet App**
+
+### 1. Open Drive👉 [Here](https://drive.google.com/drive/my-drive)
+### 2. Download🔗 [Here](https://docs.google.com/spreadsheets/d/1nSa6SvRnecUgCOSEYO-0_hgE5r29P6J1/export?format=xlsx)
 
 ## 💬 **Task 3: Create and Publish an Apps Script Chat Bot**
 
