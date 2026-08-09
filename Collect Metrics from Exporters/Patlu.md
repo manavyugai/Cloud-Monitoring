@@ -8,9 +8,9 @@
 ### Run the following Commands in CloudShell [if getting error run 2nd command)
 ### STEP 1
 ```
-curl -LO https://raw.githubusercontent.com/Itsabhishek7py/GoogleCloudSkillsboost/refs/heads/main/Collect%20Metrics%20from%20Exporters%20using%20the%20Managed%20Service%20for%20Prometheus/abhishek.sh
-sudo chmod +x abhishek.sh
-./abhishek.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Collect%20Metrics%20from%20Exporters/Patlu.sh
+sudo chmod +x Patlu.sh
+./Patlu.sh
 ```
 ### STEP 2 
 ```
