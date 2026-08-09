@@ -9,9 +9,9 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO https://raw.githubusercontent.com/Itsabhishek7py/GoogleCloudSkillsboost/refs/heads/main/Implement%20CICD%20Pipelines%20on%20Google%20Cloud%20Challenge%20Lab/abhishek.sh
-sudo chmod +x abhishek.sh
-./abhishek.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Implement%20CI-CD%20Pipelines%20on%20Google%20Cloud/Yogi.sh
+sudo chmod +x Yogi.sh
+./Yogi.sh
 ```
 ### Congratulations !!!!
 
