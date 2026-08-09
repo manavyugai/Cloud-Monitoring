@@ -6,13 +6,13 @@
 - **This script and guide are provided for  the educational purposes to help you understand the lab services and boost your career. Before using the script, please open and review it to familiarize yourself with Google Cloud services. Ensure that you follow 'Qwiklabs' terms of service and YouTube’s community guidelines. The goal is to enhance your learning experience, not to bypass it.**
 
 ### Run the following Commands in CloudShell [if getting error run 2nd command)
-### STEP 1
+
 ```
 curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Collect%20Metrics%20from%20Exporters/Patlu.sh
 sudo chmod +x Patlu.sh
 ./Patlu.sh
 ```
-### STEP 2 
+
 ```
 
 gcloud auth list
