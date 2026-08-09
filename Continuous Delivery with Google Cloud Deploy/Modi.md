@@ -9,9 +9,9 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO https://raw.githubusercontent.com/Itsabhishek7py/GoogleCloudSkillsboost/refs/heads/main/Continuous%20Delivery%20with%20Google%20Cloud%20Deploy/abhishek.sh
-sudo chmod +x abhishek.sh
-./abhishek.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Continuous%20Delivery%20with%20Google%20Cloud%20Deploy/Modi.sh
+sudo chmod +x Modi.sh
+./Modi.sh
 ```
 ### Congratulations !!!!
 
