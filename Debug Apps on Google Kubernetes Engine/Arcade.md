@@ -19,9 +19,9 @@ export ZONE=
 ```
 ## Step 2
 ```bash
-curl -LO raw.githubusercontent.com/prateekrajput08/Arcade-Google-Cloud-Labs/refs/heads/main/Debug%20Apps%20on%20Google%20Kubernetes%20Engine/TechCode.sh
-sudo chmod +x TechCode.sh 
-./TechCode.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Debug%20Apps%20on%20Google%20Kubernetes%20Engine/Arcade.sh
+sudo chmod +x Arcade.sh
+./Arcade.sh
 ```
 
 </div>
