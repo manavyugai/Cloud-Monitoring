@@ -30,7 +30,3 @@ sudo chmod +x TechCode.sh
 
 ## 🎉 **Congratulations! Lab Completed Successfully!** 🏆  
 
-6069;">
-    <em>Last updated: October 2025</em>
-  </p>
-</div>
