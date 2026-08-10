@@ -12,12 +12,12 @@ BOLD='\e[1m'
 clear
 
 echo -e "${CYAN}${BOLD}"
-# Header Section
-echo "${BG_MAGENTA}${BOLD}╔════════════════════════════════════════════════════════╗${RESET}"
-echo "${BG_MAGENTA}${BOLD}       WELCOME TO MANAVYUG AI        ${RESET}"
-echo "${BG_MAGENTA}${BOLD}╚════════════════════════════════════════════════════════╝${RESET}"
-echo
 
+cat << "EOF"
+
+
+
+EOF
 
 echo -e "${RESET}"
 # Define color variables
@@ -265,10 +265,5 @@ EOF_END
 gcloud alpha monitoring policies create --policy-from-file="awesome.json"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
-# Completion Message
-echo "${BG_GREEN}${BOLD}╔════════════════════════════════════════════════════════╗${RESET}"
-echo "${BG_GREEN}${BOLD}          LAB COMPLETED SUCESSFULLY             ${RESET}"
-echo "${BG_GREEN}${BOLD}╚════════════════════════════════════════════════════════╝${RESET}"
-echo
 
 #-----------------------------------------------------end----------------------------------------------------------#
