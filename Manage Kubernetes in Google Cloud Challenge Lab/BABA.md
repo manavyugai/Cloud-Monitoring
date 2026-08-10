@@ -1,6 +1,7 @@
 # Manage Kubernetes in Google Cloud: Challenge Lab || [GSP510](https://www.cloudskillsboost.google/focuses/58179?parent=catalog) ||
 
-## 🔑 Solution [here](https://www.youtube.com/@sparkwave.01)
+## 🔑 Solution
+### Step 1
 
 ### Run the following Commands in CloudShell
 
@@ -12,12 +13,11 @@ export NAMESPACE=
 export INTERVAL=
 export SERVICE_NAME=
 ```
+### Step2
 ```
-curl -LO raw.githubusercontent.com/imharshtiwari/2-Minutes-GCP-Lab-Solutions/main/Manage%20Kubernetes%20in%20Google%20Cloud%20Challenge%20Lab/gsp510.sh
-
-sudo chmod +x gsp510.sh
-
-./gsp510.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Manage%20Kubernetes%20in%20Google%20Cloud%20Challenge%20Lab/BABA.sh
+sudo chmod +x BABA.sh
+./BABA.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
