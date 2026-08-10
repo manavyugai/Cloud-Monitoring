@@ -38,11 +38,3 @@ sudo chmod +x *.sh
 
 # 🎉 Congratulations!
 You have successfully executed the data-sharing setup across all required project environments!
-
-
-👉 Join the conversation and never miss an update:
-
-📢 [Telegram Channel](https://t.me/cloudwalabanda)
-👥 [Discussion Group](https://t.me/cloudwalabandachats)
-
-# [Cloud Wala Banda](https://www.youtube.com/@cloudwalabanda)
