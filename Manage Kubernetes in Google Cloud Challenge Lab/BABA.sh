@@ -15,13 +15,18 @@ echo -e "${CYAN}${BOLD}"
 
 cat << "EOF"
 
-
+  ███╗   ███╗ █████╗ ███╗   ██╗ █████╗ ██╗   ██╗██╗   ██╗██╗  ██╗     █████╗ ██╗
+  ████╗ ████║██╔══██╗████╗  ██║██╔══██╗██║   ██║╚██╗ ██╔╝██║  ██║    ██╔══██╗██║
+  ██╔████╔██║███████║██╔██╗ ██║███████║██║   ██║ ╚████╔╝ ███████║    ███████║██║
+  ██║╚██╔╝██║██╔══██║██║╚██╗██║██╔══██║██║   ██║  ╚██╔╝  ██╔══██║    ██╔══██║██║
+  ██║ ╚═╝ ██║██║  ██║██║ ╚████║██║  ██║╚██████╔╝   ██║   ██║  ██║    ██║  ██║██║
+  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝
 
 EOF
 
 echo -e "${RESET}"
-# Define color variables
 
+# Define color variables
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -42,6 +47,7 @@ BG_WHITE=`tput setab 7`
 
 BOLD=`tput bold`
 RESET=`tput sgr0`
+
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
@@ -95,7 +101,6 @@ spec:
         - "--go-metrics"
 EOF
 
- 
 kubectl -n $NAMESPACE apply -f prometheus-app.yaml
   
 gsutil cp gs://spls/gsp510/pod-monitoring.yaml .
@@ -117,7 +122,6 @@ spec:
     interval: $INTERVAL
 EOF
 
-  
 kubectl -n $NAMESPACE apply -f pod-monitoring.yaml
   
 gsutil cp -r gs://spls/gsp510/hello-app/ .
@@ -160,10 +164,10 @@ spec:
 # [END gke_manifests_helloweb_deployment_deployment_helloweb]
 ---
 EOF
- 
+
 cd ..
 
-kubectl delete deployments helloweb  -n $NAMESPACE
+kubectl delete deployments helloweb -n $NAMESPACE
 kubectl -n $NAMESPACE apply -f manifests/helloweb-deployment.yaml
 
 cat > main.go <<EOF
@@ -205,7 +209,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 // [END gke_hello_app]
 
 EOF
- 
+
 export PROJECT_ID=$(gcloud config get-value project)
 export REGION="${ZONE%-*}"
 cd ~/hello-app/
@@ -264,6 +268,6 @@ EOF_END
 
 gcloud alpha monitoring policies create --policy-from-file="awesome.json"
 
-echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
+echo "${BG_GREEN}${BOLD} Execution Completed Successfully! ${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
