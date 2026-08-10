@@ -27,9 +27,9 @@ sudo chmod +x Piyaaj.sh
 Switch to Cloud Shell in the Customer (Data Twin) Project and run:
 
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Consuming%20Customer/Piyaaj.sh
-sudo chmod +x Piyaaj.sh
-./Piyaaj.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Consuming%20Customer/Baigan.sh
+sudo chmod +x Baigan.sh
+./Baigan.sh
 ```
 
 # 🎉 Congratulations!
