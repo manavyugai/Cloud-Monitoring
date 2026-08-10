@@ -10,30 +10,26 @@ Follow the steps below sequentially in their respective Google Cloud Shell envir
 Open **Cloud Shell** in the **Data Sharing Partner Project** and run:
 
 ```bash
-curl -LO [https://raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/refs/heads/main/Consuming%20Customer%20Specific%20Datasets%20from%20Data%20Sharing%20Partners%20using%20BigQuery/gsp1043-1.sh](https://raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/refs/heads/main/Consuming%20Customer%20Specific%20Datasets%20from%20Data%20Sharing%20Partners%20using%20BigQuery/gsp1043-1.sh)
-chmod +x *.sh
-./gsp1043-1.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Consuming%20Customer/Aalu.sh
+sudo chmod +x Aalu.sh
+./Aalu.sh
 ```
 ### 2️⃣ Data Publisher Console
 ### Switch to Cloud Shell in the Data Publisher Project and run:
 
 ```
-curl -LO https://raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/refs/heads/main/Consuming%20Customer%20Specific%20Datasets%20from%20Data%20Sharing%20Partners%20using%20BigQuery/gsp1043-2.sh
-
-sudo chmod +x *.sh
-
-./*.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Consuming%20Customer/Piyaaj.sh
+sudo chmod +x Piyaaj.sh
+./Piyaaj.sh
 ```
 
 ### 3️⃣ Customer (Data Twin) Console
 Switch to Cloud Shell in the Customer (Data Twin) Project and run:
 
 ```
-curl -LO https://raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/refs/heads/main/Consuming%20Customer%20Specific%20Datasets%20from%20Data%20Sharing%20Partners%20using%20BigQuery/gsp1043-3.sh
-
-sudo chmod +x *.sh
-
-./*.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Consuming%20Customer/Piyaaj.sh
+sudo chmod +x Piyaaj.sh
+./Piyaaj.sh
 ```
 
 # 🎉 Congratulations!
