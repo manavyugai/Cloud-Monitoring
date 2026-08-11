@@ -1,4 +1,4 @@
-# Analyze Sentiment with Natural Language API: Challenge Lab || ARC130(https://www.skills.google/course_templates/667)
+# Analyze Sentiment with Natural Language API: Challenge Lab || ARC130[(https://www.skills.google/course_templates/667)]
 ```
 curl -s -H "Content-Type: application/json" \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
