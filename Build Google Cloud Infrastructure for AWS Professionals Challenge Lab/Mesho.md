@@ -8,7 +8,9 @@
 ### Run the following Commands in CloudShell
 
 ```
-mesho.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Build%20Google%20Cloud%20Infrastructure%20for%20AWS%20Professionals%20Challenge%20Lab/Mesho.sh
+sudo chmod +x Mesho.sh
+./Mesho.sh
 ```
 
 ## At last Run this if not getting scorer
