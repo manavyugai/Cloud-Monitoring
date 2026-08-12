@@ -10,9 +10,9 @@
 ### Run the setup script in Cloud Shell:
 
 `````
-curl -LO https://raw.githubusercontent.com/Itsabhishek7py/GoogleCloudSkillsboost/refs/heads/main/Manage%20Bigtable%20on%20Google%20Cloud%20Challenge%20Lab/abhishek.sh
-sudo chmod +x abhishek.sh
-./abhishek.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Manage%20Bigtable%20on%20Google%20Cloud%20Challenge%20Lab/Melody.sh
+sudo chmod +x Melody.sh
+./Melody.sh
 ```````
 
 # Step 2: Clean Up Resources
