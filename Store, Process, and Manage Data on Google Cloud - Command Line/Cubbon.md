@@ -1,4 +1,4 @@
-# 🌐 Analyze BigQuery data in Connected Sheets: Challenge Lab || ARC103 🚀 [![Open Lab](https://img.shields.io/badge/Open-Lab-blue?style=flat)](https://www.cloudskillsboost.google/course_templates/632/labs/586830)
+# 🌐Store, Process, and Manage Data on Google Cloud - Command Line: Challenge Lab|| ARC102 🚀 [![Open Lab](https://img.shields.io/badge/Open-Lab-blue?style=flat)](https://www.skills.google/course_templates/659/labs/597380)
 
 ## ⚠️ Disclaimer ⚠️
 
