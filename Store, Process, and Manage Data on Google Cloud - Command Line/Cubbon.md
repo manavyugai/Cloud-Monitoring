@@ -7,9 +7,6 @@
   <br><br>
   <strong>Terms Compliance:</strong> Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The aim is to enhance your learning experience — not to circumvent it.
 </blockquote>
-
----
-
 <div style="padding: 15px; margin: 10px 0;">
 
 ## Step1 1:
@@ -22,7 +19,9 @@ export REGION=
 ```
 ## Step 2:
 ```bash
-=IF(fare_amount>0,tip_amount/fare_amount*100,0)
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20-%20Command%20Line/Cubbon.sh
+sudo chmod +x Cubbon.sh
+./Cubbon.sh
 ```
 
 </div>
