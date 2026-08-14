@@ -254,13 +254,4 @@ gcloud api-gateway gateways describe $GATEWAY_ID --location=us-central1
 
 ## 🎉 **Congratulations! Lab Completed Successfully!** 🏆  
 
----
 
-<div align="center">
-  <p style="font-size: 12px; color: #586069;">
-    <em>This guide is provided for educational purposes. Always follow Qwiklabs terms of service.</em>
-  </p>
-  <p style="font-size: 12px; color: #586069;">
-    <em>Last updated: November 2025</em>
-  </p>
-</div>
