@@ -1,6 +1,4 @@
-# Kickstarting Application Development with Gemini Code Assist: Challenge Lab || GSP527 🚀 [![Open Lab](https://img.shields.io/badge/Open-Lab-blue?style=flat)](https://www.skills.google/focuses/132354?catalog_rank=%7B%22rank%22%3A1%2C%22num_filters%22%3A0%2C%22has_search%22%3Atrue%7D&parent=catalog&search_id=59224619)
-
-## ⚠️ Disclaimer ⚠️
+# Kickstarting Application Development with Gemini Code Assist: Challenge Lab || GSP527 🚀 
 
 <blockquote style="background-color: #fffbea; border-left: 6px solid #f7c948; padding: 1em; font-size: 15px; line-height: 1.5;">
   <strong>Educational Purpose Only:</strong> This script and guide are provided for the educational purposes to help you understand the lab services and boost your career. Before using the script, please open and review it to familiarize yourself with Google Cloud services.
