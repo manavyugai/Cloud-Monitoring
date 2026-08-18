@@ -10,10 +10,14 @@ echo "=========================================="
 echo "Project ID detected: $PROJECT_ID"
 echo "=========================================="
 
-# Prompt for the yellow-highlighted bucket variables
-read -p "Enter REDACT bucket name (e.g. qwiklabs-gcp-04-179bd42f50c1-redact): " REDACT_BUCKET
-read -p "Enter INPUT bucket name (e.g. qwiklabs-gcp-04-179bd42f50c1-input): " INPUT_BUCKET
-read -p "Enter OUTPUT bucket name (e.g. qwiklabs-gcp-04-179bd42f50c1-output): " OUTPUT_BUCKET
+# Prompt for the bucket names and sanitize them (remove gs:// or trailing slashes)
+read -p "Enter REDACT bucket name: " RAW_REDACT
+read -p "Enter INPUT bucket name: " RAW_INPUT
+read -p "Enter OUTPUT bucket name: " RAW_OUTPUT
+
+export REDACT_BUCKET=$(echo "$RAW_REDACT" | sed 's|^gs://||; s|/*$||')
+export INPUT_BUCKET=$(echo "$RAW_INPUT" | sed 's|^gs://||; s|/*$||')
+export OUTPUT_BUCKET=$(echo "$RAW_OUTPUT" | sed 's|^gs://||; s|/*$||')
 
 echo ""
 echo ">>> [Task 1] Redacting sensitive data from text content..."
@@ -74,7 +78,7 @@ cat << 'EOF' > structured_template.json
             ],
             "primitiveTransformation": {
               "characterMaskConfig": {
-                "maskingChar": "#"
+                "maskingCharacter": "#"
               }
             }
           },
@@ -117,7 +121,7 @@ cat << 'EOF' > unstructured_template.json
           {
             "primitiveTransformation": {
               "replaceConfig": {
-                "newTransformationValue": {
+                "newValue": {
                   "stringValue": "[redacted]"
                 }
               }
@@ -138,7 +142,7 @@ curl -s -X POST \
   -d @unstructured_template.json
 
 echo ""
-echo ">>> [Task 3] Configuring and triggering DLP Job Trigger..."
+echo ">>> [Task 3] Configuring DLP Job Trigger and running inspection..."
 
 cat << EOF > job_trigger.json
 {
@@ -184,14 +188,41 @@ curl -s -X POST \
   -H "Content-Type: application/json" \
   -d @job_trigger.json
 
-# Activate/Run the trigger immediately
+# Run a DLP Inspect Job immediately to populate the output bucket
+cat << EOF > inspect_job.json
+{
+  "jobId": "dlp_run_job_$(date +%s)",
+  "inspectJob": {
+    "storageConfig": {
+      "cloudStorageOptions": {
+        "fileSet": {
+          "url": "gs://${INPUT_BUCKET}/*"
+        }
+      }
+    },
+    "actions": [
+      {
+        "deidentify": {
+          "cloudStorageOutput": "gs://${OUTPUT_BUCKET}",
+          "transformationConfig": {
+            "deidentifyTemplate": "projects/${PROJECT_ID}/locations/${LOCATION}/deidentifyTemplates/unstructured_data_template",
+            "structuredDeidentifyTemplate": "projects/${PROJECT_ID}/locations/${LOCATION}/deidentifyTemplates/structured_data_template"
+          }
+        }
+      }
+    ]
+  }
+}
+EOF
+
 curl -s -X POST \
-  "https://dlp.googleapis.com/v2/projects/${PROJECT_ID}/locations/${LOCATION}/jobTriggers/dlp_job:activate" \
+  "https://dlp.googleapis.com/v2/projects/${PROJECT_ID}/locations/${LOCATION}/dlpJobs" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
-  -H "Content-Type: application/json"
+  -H "Content-Type: application/json" \
+  -d @inspect_job.json
 
 echo ""
-echo ">>> Waiting 20 seconds for DLP job to process files..."
-sleep 20
+echo ">>> Waiting 25 seconds for DLP job processing to finish..."
+sleep 25
 
-echo ">>> Done! Please go back and check your progress on all tasks."
+echo ">>> All tasks completed successfully!"
