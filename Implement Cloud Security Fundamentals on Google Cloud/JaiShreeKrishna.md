@@ -7,6 +7,8 @@
   <br><br>
   <strong style="color: #f9e2af;">Terms Compliance:</strong> Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The goal is to enhance your learning experience — not to circumvent it.
 </blockquote>
+```
 curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Implement%20Cloud%20Security%20Fundamentals%20on%20Google%20Cloud/JaiShreeKrishna.sh
 sudo chmod +x JaiShreeKrishna.sh
 ./JaiShreeKrishna.sh
+```
