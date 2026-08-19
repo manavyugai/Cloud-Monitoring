@@ -14,3 +14,27 @@ curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Deve
 sudo chmod +x BAMBHOLE.sh
 ./BAMBHOLE.sh
 ```
+
+```
+#!/bin/bash
+
+PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+
+if [[ -z "$PROJECT_ID" || "$PROJECT_ID" == "(unset)" ]]; then
+    echo "❌ No active Google Cloud project found."
+    exit 1
+fi
+
+echo "Project: $PROJECT_ID"
+echo
+echo "Granting Service Account Token Creator role..."
+
+gcloud iam service-accounts add-iam-policy-binding \
+    "apigee-proxy@${PROJECT_ID}.iam.gserviceaccount.com" \
+    --member="serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-apigee.iam.gserviceaccount.com" \
+    --role="roles/iam.serviceAccountTokenCreator" \
+    --quiet
+
+echo
+echo "✅ Service Account Token Creator role granted successfully."
+```
