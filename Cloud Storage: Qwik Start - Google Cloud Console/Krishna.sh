@@ -47,7 +47,7 @@ echo
 # ---------- Download File ----------
 echo "${CYAN}${BOLD}[3/4]${RESET} Downloading required file..."
 
-curl -O https://github.com/gcpsolution99/GCP-solution/blob/main/kitten.png
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Storage%3A%20Qwik%20Start%20-%20Google%20Cloud%20Console/kitten.png
 
 echo "${GREEN}✔ File downloaded${RESET}"
 echo
