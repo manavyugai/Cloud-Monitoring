@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -25,23 +24,11 @@ RESET=`tput sgr0`
 
 # ============================= LAB START ============================== #
 
-clear
-
 echo ""
 echo "${CYAN}${BOLD}╔════════════════════════════════════════════════════════════╗${RESET}"
 echo "${CYAN}${BOLD}║${RESET}              ${WHITE}${BOLD}GOOGLE CLOUD LAB${RESET}                  ${CYAN}${BOLD}║${RESET}"
 echo "${CYAN}${BOLD}║${RESET}              ${YELLOW}${BOLD}MONOLITH DEPLOYMENT${RESET}               ${CYAN}${BOLD}║${RESET}"
 echo "${CYAN}${BOLD}╚════════════════════════════════════════════════════════════╝${RESET}"
-echo ""
-
-echo "${YELLOW}${BOLD}▶ Configuration${RESET}"
-echo ""
-
-read -p "${CYAN}${BOLD}Enter REGION: ${RESET}" REGION
-export REGION
-
-echo ""
-echo "${GREEN}${BOLD}✓ REGION set to:${RESET} ${WHITE}${BOLD}$REGION${RESET}"
 echo ""
 
 echo "${YELLOW}${BOLD}▶ Starting${RESET} ${GREEN}${BOLD}Execution...${RESET}"
@@ -95,3 +82,5 @@ echo "${GREEN}${BOLD}╚══════════════════�
 echo ""
 echo "${GREEN}${BOLD}✓ Congratulations${RESET} ${WHITE}${BOLD}for${RESET} ${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 echo ""
+
+# ============================== LAB END =============================== #
