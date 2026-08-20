@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# =========================CONFIGURATION ========================= #
 
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
