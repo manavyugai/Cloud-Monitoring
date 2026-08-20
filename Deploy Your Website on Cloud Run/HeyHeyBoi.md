@@ -8,7 +8,11 @@
   <strong style="color: #f9e2af;">Terms Compliance:</strong> Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The goal is to enhance your learning experience — not to circumvent it.
 </blockquote>
 
-
+### Step 1
+```
+export REGION=
+```
+### Step 2
 ```
 curl -sSL "https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Deploy%20Your%20Website%20on%20Cloud%20Run/HeyHeyBoi.sh" | bash
 ```
