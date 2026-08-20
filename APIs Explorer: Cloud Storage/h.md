@@ -1,4 +1,4 @@
-# Implement Sensitive Data Protection on Google Cloud: Challenge Lab [ARC116](https://www.skills.google/course_templates/750/labs/643223)
+# APIs Explorer: Cloud Storage [GSP421](https://www.skills.google/games/7426/labs/45528)
 <blockquote style="background-color: #1e1e2e; color: #cdd6f4; border-left: 5px solid #89b4fa; border-radius: 8px; padding: 1.2em; font-family: sans-serif; font-size: 14px; line-height: 1.6; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
   <div style="color: #89b4fa; font-weight: bold; font-size: 16px; margin-bottom: 8px;">
     ℹ️ DISCLAIMER
