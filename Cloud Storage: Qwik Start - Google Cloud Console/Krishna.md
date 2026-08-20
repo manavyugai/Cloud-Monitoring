@@ -9,7 +9,12 @@
   <strong style="color: #f9e2af;">Terms Compliance:</strong> Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The goal is to enhance your learning experience — not to circumvent it.
 </blockquote>
 
-## ☁️ Run in Cloud Shell:
+## Step 1
+```
+export REGION=
+```
+
+## Step 2☁️ Run in Cloud Shell:
 ```
 curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Storage%3A%20Qwik%20Start%20-%20Google%20Cloud%20Console/Krishna.sh
 sudo chmod +x Krishna.sh
