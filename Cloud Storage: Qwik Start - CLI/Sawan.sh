@@ -1,9 +1,10 @@
-```bash
 #!/bin/bash
 
-# ==============================
-#        COLOR SETTINGS
-# ==============================
+# ╔══════════════════════════════════════════════════════════════╗
+# ║                    GCP LAB AUTOMATION                       ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# -------------------- COLOR CONFIGURATION ----------------------
 
 BLACK=$(tput setaf 0)
 RED=$(tput setaf 1)
@@ -26,84 +27,38 @@ BG_WHITE=$(tput setab 7)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
-# ==============================
-#          UI FUNCTIONS
-# ==============================
+# ------------------------- START -------------------------------
 
-line() {
-    echo "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
-}
+clear
 
-header() {
-    clear
-    echo
-    echo "${BLUE}${BOLD}╔══════════════════════════════════════════════════╗${RESET}"
-    echo "${BLUE}${BOLD}║              GCP LAB EXECUTION                  ║${RESET}"
-    echo "${BLUE}${BOLD}╚══════════════════════════════════════════════════╝${RESET}"
-    echo
-}
+echo
+echo "${CYAN}${BOLD}╔══════════════════════════════════════════════════════════════╗${RESET}"
+echo "${CYAN}${BOLD}║                    STARTING EXECUTION                        ║${RESET}"
+echo "${CYAN}${BOLD}╚══════════════════════════════════════════════════════════════╝${RESET}"
+echo
 
-step() {
-    echo "${YELLOW}${BOLD}➜ $1${RESET}"
-}
-
-success() {
-    echo "${GREEN}${BOLD}✔ $1${RESET}"
-}
-
-# ==============================
-#          START
-# ==============================
-
-header
-
-echo "${MAGENTA}${BOLD}Initializing Lab Environment...${RESET}"
-line
-
-step "Configuring Compute Region"
 gcloud config set compute/region $REGION
-success "Region configured"
-echo
 
-step "Creating Cloud Storage Bucket"
+echo "${BLUE}${BOLD}➜ Creating Cloud Storage Bucket...${RESET}"
 gsutil mb gs://$DEVSHELL_PROJECT_ID
-success "Bucket created"
-echo
 
-step "Downloading Ada Lovelace Image"
+echo "${BLUE}${BOLD}➜ Downloading Ada Lovelace image...${RESET}"
 curl https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ada_Lovelace_portrait.jpg/800px-Ada_Lovelace_portrait.jpg --output ada.jpg
-success "Image downloaded"
-echo
 
-step "Uploading Image to Cloud Storage"
+echo "${BLUE}${BOLD}➜ Uploading image to Cloud Storage...${RESET}"
 gsutil cp ada.jpg gs://$DEVSHELL_PROJECT_ID
-success "Image uploaded"
-echo
 
-step "Copying Image from Cloud Storage"
+echo "${BLUE}${BOLD}➜ Copying image from Cloud Storage...${RESET}"
 gsutil cp -r gs://$DEVSHELL_PROJECT_ID/ada.jpg .
-success "Image copied"
-echo
 
-step "Copying Image to image-folder"
+echo "${BLUE}${BOLD}➜ Copying image to image-folder...${RESET}"
 gsutil cp gs://$DEVSHELL_PROJECT_ID/ada.jpg gs://$DEVSHELL_PROJECT_ID/image-folder/
-success "Image copied to folder"
-echo
 
-step "Updating Bucket Access Permissions"
+echo "${BLUE}${BOLD}➜ Updating object permissions...${RESET}"
 gsutil acl ch -u AllUsers:R gs://$DEVSHELL_PROJECT_ID/ada.jpg
-success "Permissions updated"
-echo
 
-line
 echo
-echo "${GREEN}${BOLD}╔══════════════════════════════════════════════════╗${RESET}"
-echo "${GREEN}${BOLD}║                                                  ║${RESET}"
-echo "${GREEN}${BOLD}║        ✓  LAB COMPLETED SUCCESSFULLY  ✓        ║${RESET}"
-echo "${GREEN}${BOLD}║                                                  ║${RESET}"
-echo "${GREEN}${BOLD}╚══════════════════════════════════════════════════╝${RESET}"
+echo "${GREEN}${BOLD}╔══════════════════════════════════════════════════════════════╗${RESET}"
+echo "${GREEN}${BOLD}║              CONGRATULATIONS! LAB COMPLETED                 ║${RESET}"
+echo "${GREEN}${BOLD}╚══════════════════════════════════════════════════════════════╝${RESET}"
 echo
-echo "${CYAN}${BOLD}All required operations have been executed.${RESET}"
-echo
-line
-```
