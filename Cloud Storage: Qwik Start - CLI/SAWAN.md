@@ -10,7 +10,5 @@
 
 
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Storage%3A%20Qwik%20Start%20-%20CLI/Sawan.sh
-sudo chmod +x Sawan.sh
-./Sawan.sh
+curl -sSL "https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Cloud%20Storage%3A%20Qwik%20Start%20-%20CLI/Sawan.sh" | bash
 ```
