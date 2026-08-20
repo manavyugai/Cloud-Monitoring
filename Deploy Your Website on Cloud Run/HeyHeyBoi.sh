@@ -1,91 +1,97 @@
 #!/bin/bash
-set -e
 
-# Prompt user for Region
-read -p "Enter Region (e.g. us-central1): " REGION
+
+
+BLACK=`tput setaf 0`
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+MAGENTA=`tput setaf 5`
+CYAN=`tput setaf 6`
+WHITE=`tput setaf 7`
+
+BG_BLACK=`tput setab 0`
+BG_RED=`tput setab 1`
+BG_GREEN=`tput setab 2`
+BG_YELLOW=`tput setab 3`
+BG_BLUE=`tput setab 4`
+BG_MAGENTA=`tput setab 5`
+BG_CYAN=`tput setab 6`
+BG_WHITE=`tput setab 7`
+
+BOLD=`tput bold`
+RESET=`tput sgr0`
+
+# ============================= LAB START ============================== #
+
+clear
+
+echo ""
+echo "${CYAN}${BOLD}╔════════════════════════════════════════════════════════════╗${RESET}"
+echo "${CYAN}${BOLD}║${RESET}              ${WHITE}${BOLD}GOOGLE CLOUD LAB${RESET}                  ${CYAN}${BOLD}║${RESET}"
+echo "${CYAN}${BOLD}║${RESET}              ${YELLOW}${BOLD}MONOLITH DEPLOYMENT${RESET}               ${CYAN}${BOLD}║${RESET}"
+echo "${CYAN}${BOLD}╚════════════════════════════════════════════════════════════╝${RESET}"
+echo ""
+
+echo "${YELLOW}${BOLD}▶ Configuration${RESET}"
+echo ""
+
+read -p "${CYAN}${BOLD}Enter REGION: ${RESET}" REGION
 export REGION
 
-# Auto-detect Project ID
-export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
-echo "Project ID detected: $GOOGLE_CLOUD_PROJECT"
+echo ""
+echo "${GREEN}${BOLD}✓ REGION set to:${RESET} ${WHITE}${BOLD}$REGION${RESET}"
+echo ""
 
-# ----------------------------------------------------
-# Task 1: Clone the source repository & setup
-# ----------------------------------------------------
-echo "Cloning source repository..."
-cd ~
-git clone https://github.com/googlecodelabs/monolith-to-microservices.git
-cd ~/monolith-to-microservices
-./setup.sh
+echo "${YELLOW}${BOLD}▶ Starting${RESET} ${GREEN}${BOLD}Execution...${RESET}"
+echo ""
 
-# ----------------------------------------------------
-# Task 2: Create Artifact Registry & Build Container (v1.0.0)
-# ----------------------------------------------------
-echo "Enabling required APIs..."
+gcloud auth list 
+
 gcloud services enable artifactregistry.googleapis.com \
     cloudbuild.googleapis.com \
     run.googleapis.com
 
-echo "Creating Artifact Registry repository..."
+git clone https://github.com/googlecodelabs/monolith-to-microservices.git
+cd ~/monolith-to-microservices
+
+./setup.sh
+
+cd ~/monolith-to-microservices/monolith
+
 gcloud artifacts repositories create monolith-demo \
     --repository-format=docker \
     --location=$REGION \
-    --description="Docker repository" || true
+    --description="Awesome Lab" 
 
-echo "Configuring Docker authentication..."
-gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
+gcloud auth configure-docker  --quiet 
 
-echo "Building and pushing container v1.0.0..."
-cd ~/monolith-to-microservices/monolith
-gcloud builds submit --tag ${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0
+gcloud builds submit --tag $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0
 
-# ----------------------------------------------------
-# Task 3: Deploy the container to Cloud Run
-# ----------------------------------------------------
-echo "Deploying monolith to Cloud Run..."
-gcloud run deploy monolith \
-    --image ${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0 \
-    --region $REGION \
-    --platform managed \
-    --allow-unauthenticated \
-    --quiet
+echo "Y" | gcloud run deploy monolith --image $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0 --region $REGION
 
-# ----------------------------------------------------
-# Task 4: Create new revision with lower concurrency
-# ----------------------------------------------------
-echo "Deploying new revision with concurrency 1..."
-gcloud run deploy monolith \
-    --image ${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0 \
-    --region $REGION \
-    --platform managed \
-    --concurrency 1 \
-    --allow-unauthenticated \
-    --quiet
+gcloud run deploy monolith --image $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0 --region $REGION --concurrency 1
 
-# ----------------------------------------------------
-# Task 5: Make changes to the website & Build v2.0.0
-# ----------------------------------------------------
-echo "Updating website code..."
+gcloud run deploy monolith --image $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:1.0.0 --region $REGION --concurrency 80
+
 cd ~/monolith-to-microservices/react-app/src/pages/Home
 mv index.js.new index.js
 
-echo "Building React app..."
+cat ~/monolith-to-microservices/react-app/src/pages/Home/index.js
+
 cd ~/monolith-to-microservices/react-app
 npm run build:monolith
 
-echo "Building and pushing container v2.0.0..."
 cd ~/monolith-to-microservices/monolith
-gcloud builds submit --tag ${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:2.0.0
+gcloud builds submit --tag $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:2.0.0
 
-# ----------------------------------------------------
-# Task 6: Update website with zero downtime
-# ----------------------------------------------------
-echo "Deploying monolith v2.0.0 to Cloud Run..."
-gcloud run deploy monolith \
-    --image ${REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:2.0.0 \
-    --region $REGION \
-    --platform managed \
-    --allow-unauthenticated \
-    --quiet
+gcloud run deploy monolith --image $REGION-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/monolith-demo/monolith:2.0.0 --region $REGION
 
-echo "Lab completed successfully!"
+echo ""
+echo "${GREEN}${BOLD}╔════════════════════════════════════════════════════════════╗${RESET}"
+echo "${GREEN}${BOLD}║${RESET}                 ${WHITE}${BOLD}LAB COMPLETED${RESET}                    ${GREEN}${BOLD}║${RESET}"
+echo "${GREEN}${BOLD}╚════════════════════════════════════════════════════════════╝${RESET}"
+echo ""
+echo "${GREEN}${BOLD}✓ Congratulations${RESET} ${WHITE}${BOLD}for${RESET} ${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo ""
