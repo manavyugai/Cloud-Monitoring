@@ -27,7 +27,7 @@ Qwiklabs me Check My Progress (Task 1 & Task 2) click karein.
 ## 🚀 Command 2 of 2 (IAM Auth & PITR Recovery)
 (Migration Job Promote ho jane ke baad ise chalayein)
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/APIs%20Explorer%3A%20Cloud%20Storage/Hi.sh
-sudo chmod +x Hi.sh
-./Hi.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20SQL%20for%20PostgreSQL%20Instances%3A%20Challenge%20Lab/Hanuman2.sh
+sudo chmod +x Hanuman2.sh
+./Hanuman2.sh
 ```
