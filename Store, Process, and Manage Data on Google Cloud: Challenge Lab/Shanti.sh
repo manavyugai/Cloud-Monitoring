@@ -3,13 +3,23 @@
 
 set -e
 
-# Prompt user for variable values assigned in the lab instructions
-read -p "Enter BUCKET_NAME: " BUCKET_NAME
-read -p "Enter TOPIC_NAME: " TOPIC_NAME
-read -p "Enter FUNCTION_NAME: " FUNCTION_NAME
-read -p "Enter REGION (e.g., us-central1): " REGION
+# Prompt user for variable values and strip whitespace
+read -p "Enter BUCKET_NAME: " RAW_BUCKET
+read -p "Enter TOPIC_NAME: " RAW_TOPIC
+read -p "Enter FUNCTION_NAME: " RAW_FUNCTION
+read -p "Enter REGION (e.g., us-central1): " RAW_REGION
 
-# Get current GCP Project ID
+BUCKET_NAME=$(echo "$RAW_BUCKET" | xargs)
+TOPIC_NAME=$(echo "$RAW_TOPIC" | xargs)
+FUNCTION_NAME=$(echo "$RAW_FUNCTION" | xargs)
+REGION=$(echo "$RAW_REGION" | xargs)
+
+# Validate that all required inputs are present
+if [ -z "$BUCKET_NAME" ] || [ -z "$TOPIC_NAME" ] || [ -z "$FUNCTION_NAME" ] || [ -z "$REGION" ]; then
+  echo "Error: One or more inputs were left blank. Please re-run the script and fill in all values."
+  exit 1
+fi
+
 PROJECT_ID=$(gcloud config get-value project)
 
 echo "=========================================="
@@ -19,14 +29,14 @@ echo "=========================================="
 # -------------------------------------------------------------------------
 # Task 1: Create a Bucket
 # -------------------------------------------------------------------------
-echo "[1/4] Creating Cloud Storage Bucket..."
-gsutil mb -l $REGION gs://$BUCKET_NAME/
+echo "[1/4] Creating Cloud Storage Bucket: gs://${BUCKET_NAME}"
+gsutil mb -l "$REGION" "gs://${BUCKET_NAME}"
 
 # -------------------------------------------------------------------------
 # Task 2: Create a Pub/Sub Topic
 # -------------------------------------------------------------------------
-echo "[2/4] Creating Pub/Sub Topic..."
-gcloud pubsub topics create $TOPIC_NAME
+echo "[2/4] Creating Pub/Sub Topic: ${TOPIC_NAME}"
+gcloud pubsub topics create "$TOPIC_NAME"
 
 # -------------------------------------------------------------------------
 # Task 3: Create the Thumbnail Cloud Run Function
@@ -36,7 +46,6 @@ echo "[3/4] Preparing source code and deploying Cloud Function..."
 mkdir -p ~/thumbnail-func
 cd ~/thumbnail-func
 
-# Write index.js with dynamically populated cloudEvent, bucket, and topic values
 cat << EOF > index.js
 const functions = require('@google-cloud/functions-framework');
 const { Storage } = require('@google-cloud/storage');
@@ -102,7 +111,6 @@ functions.cloudEvent('$FUNCTION_NAME', async cloudEvent => {
 });
 EOF
 
-# Write package.json
 cat << 'EOF' > package.json
 {
   "name": "thumbnails",
@@ -124,31 +132,30 @@ cat << 'EOF' > package.json
 }
 EOF
 
-# Ensure Eventarc & Cloud Run service accounts have required permissions
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
-STORAGE_SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_ID)
+# Grant Service Account permissions
+STORAGE_SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p "$PROJECT_ID")
 
-gcloud projects add-iam-policy-binding $PROJECT_ID \
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
     --member="serviceAccount:$STORAGE_SERVICE_ACCOUNT" \
     --role="roles/pubsub.publisher" > /dev/null
 
-# Deploy 2nd Gen Cloud Function (Cloud Run Function) with Node.js 22 runtime
-gcloud functions deploy $FUNCTION_NAME \
+# Deploy 2nd Gen Function
+gcloud functions deploy "$FUNCTION_NAME" \
   --gen2 \
   --runtime=nodejs22 \
-  --region=$REGION \
+  --region="$REGION" \
   --source=. \
-  --entry-point=$FUNCTION_NAME \
+  --entry-point="$FUNCTION_NAME" \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
   --trigger-event-filters="bucket=$BUCKET_NAME"
 
 # -------------------------------------------------------------------------
 # Task 4: Test Infrastructure
 # -------------------------------------------------------------------------
-echo "[4/4] Uploading test image to bucket..."
+echo "[4/4] Uploading test image..."
 curl -sO https://storage.googleapis.com/cloud-training/arc101/travel.jpg
-gsutil cp travel.jpg gs://$BUCKET_NAME/
+gsutil cp travel.jpg "gs://${BUCKET_NAME}/"
 
 echo "=========================================="
-echo "Setup complete! Check your lab progress."
+echo "Done! Check your progress in the lab interface."
 echo "=========================================="
