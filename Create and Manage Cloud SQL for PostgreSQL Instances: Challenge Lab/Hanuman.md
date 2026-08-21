@@ -31,3 +31,9 @@ curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Crea
 sudo chmod +x Hanuman2.sh
 ./Hanuman2.sh
 ```
+# BHARAT MATA KI JAI!
+```
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20SQL%20for%20PostgreSQL%20Instances%3A%20Challenge%20Lab/Auto.sh
+sudo chmod +x Auto.sh
+./Auto.sh
+```
