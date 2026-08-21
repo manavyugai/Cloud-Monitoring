@@ -10,7 +10,5 @@
 
 
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Implement%20Sensitive%20Data%20Protection%20on%20Google%20Cloud%3A%20Challenge%20Lab/Mahadev.sh
-sudo chmod +x Mahadev.sh
-./Mahadev.sh
+curl -sSL "https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%3A%20Challenge%20Lab/Shanti.sh" | bash
 ```
