@@ -8,11 +8,24 @@
   <strong style="color: #f9e2af;">Terms Compliance:</strong> Always ensure compliance with Qwiklabs' terms of service and YouTube's community guidelines. The goal is to enhance your learning experience — not to circumvent it.
 </blockquote>
 
-# Step 1: VM ke andar PostgreSQL aur Primary Keys set karein
+## Step 1: VM ke andar PostgreSQL aur Primary Keys set karein
 ```
-
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20SQL%20for%20PostgreSQL%20Instances%3A%20Challenge%20Lab/Hanuman1.sh
+sudo chmod +x Hanuman1.sh
+./Hanuman1.sh
 ```
+## 🔹 Step 2: Google Console GUI Steps (Short)
+Database Migration > Migration Jobs > Create Migration Job.
+Details: Name = migration-job, Type = Continuous, Source = PostgreSQL, Destination = Cloud SQL for PostgreSQL.
+Source: migration-profile select karein.
+Destination: Apni lab instructions se Migrated Cloud SQL for PostgreSQL Instance ID chunen. Password me supersecret! enter karein.
+Connectivity: VPC Peering > Network = default > Allocate & Connect.
+Create & Start Job kar ke status Running (CDC) aane ka wait karein.
+Job khol kar PROMOTE par click kar dein aur Completed hone ka wait karein.
+Qwiklabs me Check My Progress (Task 1 & Task 2) click karein.
 
+## 🚀 Command 2 of 2 (IAM Auth & PITR Recovery)
+(Migration Job Promote ho jane ke baad ise chalayein)
 ```
 curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/APIs%20Explorer%3A%20Cloud%20Storage/Hi.sh
 sudo chmod +x Hi.sh
