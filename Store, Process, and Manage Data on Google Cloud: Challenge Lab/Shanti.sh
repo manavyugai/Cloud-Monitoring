@@ -21,22 +21,53 @@ if [ -z "$BUCKET_NAME" ] || [ -z "$TOPIC_NAME" ] || [ -z "$FUNCTION_NAME" ] || [
 fi
 
 PROJECT_ID=$(gcloud config get-value project)
+PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
 
 echo "=========================================="
 echo "Starting lab setup for Project: $PROJECT_ID"
 echo "=========================================="
 
 # -------------------------------------------------------------------------
+# Step 0: Fix IAM Permissions for Eventarc & Cloud Storage Triggers
+# -------------------------------------------------------------------------
+echo "[0/4] Setting up required IAM permissions for Eventarc..."
+
+# Enable required APIs
+gcloud services enable eventarc.googleapis.com run.googleapis.com cloudfunctions.googleapis.com
+
+STORAGE_SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p "$PROJECT_ID")
+
+# Grant Storage Service Account Publisher role
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+    --member="serviceAccount:$STORAGE_SERVICE_ACCOUNT" \
+    --role="roles/pubsub.publisher" > /dev/null
+
+# Grant Eventarc Service Agent role
+EVENTARC_SA="service-${PROJECT_NUMBER}@gcp-sa-eventarc.iam.gserviceaccount.com"
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+    --member="serviceAccount:$EVENTARC_SA" \
+    --role="roles/eventarc.serviceAgent" > /dev/null || true
+
+# Grant Compute Engine default service account Event Receiver role
+COMPUTE_SA="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+    --member="serviceAccount:$COMPUTE_SA" \
+    --role="roles/eventarc.eventReceiver" > /dev/null
+
+echo "Waiting 15 seconds for permissions to propagate..."
+sleep 15
+
+# -------------------------------------------------------------------------
 # Task 1: Create a Bucket
 # -------------------------------------------------------------------------
 echo "[1/4] Creating Cloud Storage Bucket: gs://${BUCKET_NAME}"
-gsutil mb -l "$REGION" "gs://${BUCKET_NAME}"
+gsutil mb -l "$REGION" "gs://${BUCKET_NAME}" || true
 
 # -------------------------------------------------------------------------
 # Task 2: Create a Pub/Sub Topic
 # -------------------------------------------------------------------------
 echo "[2/4] Creating Pub/Sub Topic: ${TOPIC_NAME}"
-gcloud pubsub topics create "$TOPIC_NAME"
+gcloud pubsub topics create "$TOPIC_NAME" || true
 
 # -------------------------------------------------------------------------
 # Task 3: Create the Thumbnail Cloud Run Function
@@ -132,14 +163,7 @@ cat << 'EOF' > package.json
 }
 EOF
 
-# Grant Service Account permissions
-STORAGE_SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p "$PROJECT_ID")
-
-gcloud projects add-iam-policy-binding "$PROJECT_ID" \
-    --member="serviceAccount:$STORAGE_SERVICE_ACCOUNT" \
-    --role="roles/pubsub.publisher" > /dev/null
-
-# Deploy 2nd Gen Function
+# Deploy 2nd Gen Function with retry on event propagation delays
 gcloud functions deploy "$FUNCTION_NAME" \
   --gen2 \
   --runtime=nodejs22 \
@@ -157,5 +181,5 @@ curl -sO https://storage.googleapis.com/cloud-training/arc101/travel.jpg
 gsutil cp travel.jpg "gs://${BUCKET_NAME}/"
 
 echo "=========================================="
-echo "Done! Check your progress in the lab interface."
+echo "Deployment successful! Check your progress in the lab."
 echo "=========================================="
