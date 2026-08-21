@@ -15,6 +15,18 @@ sudo chmod +x Hanuman1.sh
 ./Hanuman1.sh
 ```
 ## 🔹 Step 2: Google Console GUI Steps (Short)
+```
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20SQL%20for%20PostgreSQL%20Instances%3A%20Challenge%20Lab/Hi.sh
+sudo chmod +x Hi.sh
+./Hi.sh
+```
+# 2
+```
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Create%20and%20Manage%20Cloud%20SQL%20for%20PostgreSQL%20Instances%3A%20Challenge%20Lab/hi2.sh
+sudo chmod +x hi2.sh
+./hi2.sh
+```
+
 Database Migration > Migration Jobs > Create Migration Job.
 Details: Name = migration-job, Type = Continuous, Source = PostgreSQL, Destination = Cloud SQL for PostgreSQL.
 Source: migration-profile select karein.
