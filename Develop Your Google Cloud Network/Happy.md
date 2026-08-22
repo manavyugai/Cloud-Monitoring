@@ -20,3 +20,5 @@ sudo chmod +x Happy.sh
 ./Happy.sh
 ```
 ## Step 3 [Kubernetes](https://console.cloud.google.com/kubernetes/discovery)
+
+## Step 4 [Uptime](https://console.cloud.google.com/monitoring/uptime)
