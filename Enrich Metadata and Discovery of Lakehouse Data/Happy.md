@@ -16,10 +16,4 @@ sudo chmod +x Happy.sh
 ./Happy.sh
 ```
 
-## Step 2:
 
-```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Enrich%20Metadata%20and%20Discovery%20of%20Lakehouse%20Data/Sad.sh
-sudo chmod +x Sad.sh
-./Sad.sh
-```
