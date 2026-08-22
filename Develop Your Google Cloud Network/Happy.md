@@ -15,7 +15,7 @@ export ZONE=
 ## Step 2 : Run In cloud Shell
 
 ```
-curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Enrich%20Metadata%20and%20Discovery%20of%20Lakehouse%20Data/Happy.sh
+curl -LO https://raw.githubusercontent.com/manavyugai/Cloud-Monitoring/main/Develop%20Your%20Google%20Cloud%20Network/Happy.sh
 sudo chmod +x Happy.sh
 ./Happy.sh
 ```
